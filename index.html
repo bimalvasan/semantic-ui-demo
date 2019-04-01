@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://semantic-ui.com/dist/semantic.css" />
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://semantic-ui.com/dist/semantic.js"></script>
+    <!-- <script src="main.js"></script> -->
+</head>
+<body>
+    <div class="ui grid">
+        <div class="row"><br /><br /><br />
+            <h2 class="ui center aligned icon header">
+                <i class="circular users icon"></i>
+                Production Deployment
+            </h2>
+        </div>
+        <div class="row">
+            <div class="right aligned four wide column"></div>
+            <div class="seven wide column">Is it ok to go to pilot 1?</div>
+            <div class="five wide column" >
+                <input type="checkbox" id="chkApprove" onchange="isValid()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="right aligned four wide column"></div>
+            <div class="seven wide column">
+                <h4 class="ui block header">
+                    Verified the targets in the list?
+                </h4>
+            </div>
+            <div class="five wide column">
+                <input type="checkbox" id="chkTarget" onchange="isValid()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="four wide column"></div>
+            <div class="seven wide column">
+                <div class="ui styled fluid accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Deployment targets
+                    </div>
+                    <div class="content">
+                        <table class="ui celled table">
+                        <thead>
+                            <tr>
+                                <th>Target</th>
+                                <th>Site ID</th>
+                                <th>Env</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Name">James</td>
+                                    <td data-label="Age">24</td>
+                                    <td data-label="Job">Engineer</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">Jill</td>
+                                    <td data-label="Age">26</td>
+                                    <td data-label="Job">Engineer</td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Name">Elyse</td>
+                                    <td data-label="Age">24</td>
+                                    <td data-label="Job">Designer</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column"></div>
+        </div>
+        <div class="row">
+            <div class="center aligned sixteen wide column">
+                <div class="ui divider"></div>
+                <div class="ui buttons">
+                    <button class="ui primary button" id="btnApprove" disabled>Approve</button>
+                    <div class="or"></div>
+                    <button class="ui button">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.ui.accordion').accordion();
+        function isValid() {
+            $("#btnApprove").attr("disabled", !($("#chkApprove")[0].checked && $("#chkTarget")[0].checked));
+        }
+    </script>
+</body>
+</html>
